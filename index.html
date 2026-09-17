@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ファイルを開いています</title>
+<style>
+  body { font-family: sans-serif; padding: 2rem; color: #333; }
+</style>
+</head>
+<body>
+<p id="msg">ファイルを開いています…</p>
+<script>
+  var m = location.search.replace(/^\?/, "").match(/(?:^|&)path=([^&]*)/);
+  if (m) {
+    location.href = "zumen-open://" + m[1];
+  } else {
+    document.getElementById("msg").textContent = "開くファイルが指定されていません。";
+  }
+</script>
+</body>
+</html>
